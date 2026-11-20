@@ -1,27 +1,24 @@
-# Mobile-Ready Website
+# Mpearl Clinical Laboratory & Diagnostics
 
-don't put the prices on the website
+A static React site for browsing laboratory tests, health screening packages and ultrasound scans in Surulere, Lagos. The appointment form prepares a WhatsApp message for the visitor to review and send.
 
-and do well
-the website shouold be mobile responsive too
+## Local development
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2706b6cf-786a-474f-b1e7-564027bef630).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Use Node.js 24 and npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
+npm test
 ```
+
+## Build and deploy
+
+```sh
+npm run build
+npm run preview
+```
+
+The production files are in `dist/`. Publish that directory on a static host.
+
+For [GitHub Pages](https://github.com/seunosinowo/mpearl_3/settings/pages), go to **Settings > Pages** and select **GitHub Actions** as the source. Once enabled, the deployment workflow runs on pushes to `main` and can also be run manually from the Actions tab.
