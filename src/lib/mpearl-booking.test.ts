@@ -14,7 +14,7 @@ describe("Mpearl appointment message", () => {
     expect(message).toContain("Name: Ada Okafor");
     expect(message).toContain("Phone: +234 800 123 4567");
     expect(message).toContain("Requested service: Silver Signature");
-    expect(message).toContain("Preferred date: November 25, 2026");
+    expect(message).toContain("Preferred date: 25 November 2026");
     expect(message).not.toMatch(/(?:₦|NGN|Naira|#)\s*[\d,.]+/i);
   });
 

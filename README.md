@@ -7,7 +7,7 @@ A static React site for browsing laboratory tests, health screening packages and
 Use Node.js 24 and npm.
 
 ```sh
-npm install
+npm ci
 npm run dev
 npm test
 ```
@@ -19,6 +19,6 @@ npm run build
 npm run preview
 ```
 
-The production files are in `dist/`. Publish that directory on a static host.
+The production files are in `dist/`. The build includes separate HTML pages for Home, Services, Health Packages, Appointments, and Visit. Publish the full directory on a static host to keep the page links working.
 
-For [GitHub Pages](https://github.com/seunosinowo/mpearl_3/settings/pages), go to **Settings > Pages** and select **GitHub Actions** as the source. Once enabled, the deployment workflow runs on pushes to `main` and can also be run manually from the Actions tab.
+When you are ready to publish on [GitHub Pages](https://github.com/seunosinowo/mpearl_3/settings/pages), select **GitHub Actions** as the Pages source and run **Deploy to GitHub Pages** from the Actions tab. The workflow runs only when started manually.

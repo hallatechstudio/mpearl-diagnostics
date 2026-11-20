@@ -1,17 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import { MpearlHome } from "./MpearlHome";
+import { isPageId } from "./lib/mpearl-pages";
+import { MpearlSite } from "./MpearlSite";
 import "./styles.css";
 
 const root = document.getElementById("root");
+const page = root?.dataset["page"];
 
-if (!root) {
-  throw new Error("The page is missing its root element.");
+if (!root || !isPageId(page)) {
+  throw new Error("The page is missing its Mpearl entry point.");
 }
 
 createRoot(root).render(
   <StrictMode>
-    <MpearlHome />
+    <MpearlSite page={page} />
   </StrictMode>,
 );
