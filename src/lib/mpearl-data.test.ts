@@ -1,10 +1,20 @@
 import { describe, expect, it } from "vitest";
 
-import { healthPackages, investigations, serviceCatalog, signaturePackages } from "@/lib/mpearl-data";
+import {
+  healthPackages,
+  investigations,
+  serviceCatalog,
+  signaturePackages,
+} from "@/lib/mpearl-data";
 
 describe("Mpearl service catalog", () => {
   it("keeps prices off package and investigation listings", () => {
-    const listings = [...healthPackages, ...signaturePackages, ...investigations, ...serviceCatalog];
+    const listings = [
+      ...healthPackages,
+      ...signaturePackages,
+      ...investigations,
+      ...serviceCatalog,
+    ];
     const copy = JSON.stringify(listings);
 
     expect(listings.every((listing) => !("price" in listing))).toBe(true);

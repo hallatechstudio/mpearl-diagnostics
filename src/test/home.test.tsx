@@ -20,10 +20,17 @@ describe("Mpearl pages", () => {
       "href",
       "visit.html",
     );
-    expect(screen.getByRole("link", { name: "Request an appointment" })).toHaveAttribute(
-      "href",
-      "appointments.html",
-    );
+    expect(
+      screen
+        .getAllByRole("link", { name: "Request an appointment" })
+        .map((link) => link.getAttribute("href")),
+    ).toContain("appointments.html");
+  });
+
+  it.each(["about", "faqs"] as const)("renders the %s page with a main heading", (page) => {
+    render(<MpearlSite page={page} />);
+
+    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
   });
 
   it("shows a matching Signature package in the searchable catalog", () => {
@@ -49,6 +56,25 @@ describe("Mpearl pages", () => {
     } finally {
       window.history.replaceState(null, "", originalUrl);
     }
+  });
+
+  it("fills the home page with the laboratory story, location and social links", () => {
+    render(<MpearlSite page="home" />);
+
+    expect(screen.getByRole("heading", { name: "Vision" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Mission" })).toBeInTheDocument();
+    expect(screen.getAllByText(/first floor/i).length).toBeGreaterThan(0);
+    expect(
+      screen.getAllByRole("link", { name: /Instagram @mpearldiagnostics/ })[0],
+    ).toHaveAttribute("href", "https://www.instagram.com/mpearldiagnostics/");
+    expect(screen.getAllByRole("link", { name: /TikTok @mpearldiagnostics/ })[0]).toHaveAttribute(
+      "href",
+      "https://www.tiktok.com/@mpearldiagnostics",
+    );
+    expect(
+      screen.getAllByRole("img", { name: /Mpearl Clinical Laboratory/ }).length,
+    ).toBeGreaterThan(0);
+    expect(screen.getByRole("button", { name: "Where is Mpearl?" })).toBeInTheDocument();
   });
 
   it("opens a WhatsApp draft for visitors who need help choosing a service", () => {

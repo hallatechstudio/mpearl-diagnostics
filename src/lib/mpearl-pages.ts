@@ -2,6 +2,8 @@ export const pageFiles = {
   home: "index.html",
   services: "services.html",
   packages: "packages.html",
+  about: "about.html",
+  faqs: "faqs.html",
   appointments: "appointments.html",
   visit: "visit.html",
 } as const;

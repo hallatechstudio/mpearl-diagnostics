@@ -1,40 +1,40 @@
-import { ArrowUpRight } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { VisitPanel } from "@/components/VisitPanel";
+import { pageFiles } from "@/lib/mpearl-pages";
 
 export function VisitPage() {
   return (
     <section
       id="visit"
       aria-labelledby="visit-heading"
-      className="scroll-mt-20 bg-primary px-5 py-14 text-primary-foreground sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-20 bg-background px-5 py-16 sm:px-8 sm:py-20 lg:px-12"
     >
-      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-        <div>
-          <h1
-            id="visit-heading"
-            className="max-w-2xl font-display text-2xl font-bold leading-tight sm:text-3xl"
-          >
-            Visit Mpearl in Surulere
-          </h1>
-          <p className="mt-3 max-w-xl leading-7 text-primary-foreground/80">
-            78 Bode Thomas Street, Surulere, Lagos. Opposite Chicken Republic, in the same building
-            as Konga, on the first floor.
-          </p>
-        </div>
-        <Button
-          asChild
-          size="lg"
-          className="bg-accent text-accent-foreground shadow-none hover:bg-accent/90"
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-3 text-sm font-bold uppercase text-primary">Visit us</p>
+        <h1
+          id="visit-heading"
+          className="max-w-2xl font-display text-3xl font-bold leading-tight sm:text-4xl"
         >
-          <a
-            href="https://maps.google.com/?q=78+Bode+Thomas+Street+Surulere+Lagos"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Get directions <ArrowUpRight aria-hidden="true" />
+          Visit Mpearl in Surulere
+        </h1>
+        <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">
+          78 Bode Thomas Street, opposite Chicken Republic. Mpearl is in the same building as Konga,
+          on the first floor. Call ahead or request an appointment if you would like the team to
+          expect you.
+        </p>
+        <div className="mt-8">
+          <VisitPanel />
+        </div>
+        <p className="mt-6 text-sm text-muted-foreground">
+          Questions about a test or package? See the{" "}
+          <a href={`${pageFiles.home}#faqs`} className="font-medium text-primary hover:underline">
+            FAQs
+          </a>{" "}
+          or{" "}
+          <a href={pageFiles.services} className="font-medium text-primary hover:underline">
+            browse services
           </a>
-        </Button>
+          .
+        </p>
       </div>
     </section>
   );

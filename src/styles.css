@@ -169,7 +169,11 @@
 }
 
 @utility mpearl-grid-dots {
-  background-image: radial-gradient(circle, color-mix(in oklab, var(--color-primary) 18%, transparent) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-primary) 18%, transparent) 1px,
+    transparent 1px
+  );
   background-size: 18px 18px;
 }
 

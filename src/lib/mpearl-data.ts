@@ -14,7 +14,14 @@ export const healthPackages: HealthPackage[] = [
   {
     name: "Wellness Package",
     summary: "A broad check-up for anyone interested in routine health screening.",
-    includes: ["Full blood count", "Fasting blood sugar", "Lipid profile", "Liver and kidney function", "Urinalysis and stool examination", "Hepatitis B & C, HIV and syphilis screening"],
+    includes: [
+      "Full blood count",
+      "Fasting blood sugar",
+      "Lipid profile",
+      "Liver and kidney function",
+      "Urinalysis and stool examination",
+      "Hepatitis B & C, HIV and syphilis screening",
+    ],
   },
   {
     name: "STI Screening Package",
@@ -24,22 +31,47 @@ export const healthPackages: HealthPackage[] = [
   {
     name: "Domestic Staff / House-Help Screening",
     summary: "Screening for domestic staff, house-helps, cooks and drivers.",
-    includes: ["Full blood count", "Stool examination", "Hepatitis B & C", "HIV and syphilis screening", "Urinalysis"],
+    includes: [
+      "Full blood count",
+      "Stool examination",
+      "Hepatitis B & C",
+      "HIV and syphilis screening",
+      "Urinalysis",
+    ],
   },
   {
     name: "New Employee Screening",
     summary: "A screening package for employees joining a new organisation.",
-    includes: ["Full blood count", "HIV screening", "Hepatitis B & C", "Syphilis (VDRL)", "Urinalysis and stool examination"],
+    includes: [
+      "Full blood count",
+      "HIV screening",
+      "Hepatitis B & C",
+      "Syphilis (VDRL)",
+      "Urinalysis and stool examination",
+    ],
   },
   {
     name: "Couples Package",
     summary: "Health checks for couples, with general or STI-focused screening.",
-    includes: ["HIV I & II", "Hepatitis B & C", "Blood group and genotype", "Syphilis (VDRL)", "Full blood count and urinalysis", "Semen analysis for males"],
+    includes: [
+      "HIV I & II",
+      "Hepatitis B & C",
+      "Blood group and genotype",
+      "Syphilis (VDRL)",
+      "Full blood count and urinalysis",
+      "Semen analysis for males",
+    ],
   },
   {
     name: "Pre-marital Screening Package",
     summary: "Screening for couples preparing for marriage.",
-    includes: ["HIV I & II", "Hepatitis B & C", "Blood group and genotype", "Syphilis (VDRL)", "Full blood count and urinalysis"],
+    includes: [
+      "HIV I & II",
+      "Hepatitis B & C",
+      "Blood group and genotype",
+      "Syphilis (VDRL)",
+      "Full blood count and urinalysis",
+    ],
   },
   {
     name: "Fertility Evaluation Package",
@@ -54,12 +86,24 @@ export const healthPackages: HealthPackage[] = [
   {
     name: "Hypertension Package",
     summary: "A check-up package for people with high blood pressure.",
-    includes: ["Electrolytes, urea and creatinine", "Lipid profile", "Full blood count", "Fasting blood sugar"],
+    includes: [
+      "Electrolytes, urea and creatinine",
+      "Lipid profile",
+      "Full blood count",
+      "Fasting blood sugar",
+    ],
   },
   {
     name: "Executive / Corporate Wellness",
     summary: "A comprehensive health check for business executives, managers or clients.",
-    includes: ["Full blood count, fasting blood sugar and HbA1c", "Lipid, liver and kidney function", "Thyroid function", "Hepatitis B & C and HIV I & II", "Urinalysis and stool examination", "PSA for men over 40"],
+    includes: [
+      "Full blood count, fasting blood sugar and HbA1c",
+      "Lipid, liver and kidney function",
+      "Thyroid function",
+      "Hepatitis B & C and HIV I & II",
+      "Urinalysis and stool examination",
+      "PSA for men over 40",
+    ],
   },
   {
     name: "Thyroid Function Package",
@@ -79,12 +123,25 @@ export const healthPackages: HealthPackage[] = [
   {
     name: "Geriatric / Senior Citizen Package",
     summary: "Health screening for older adults.",
-    includes: ["Full blood count", "Fasting blood sugar", "Lipid profile", "PSA for men", "Liver and kidney function", "Urinalysis"],
+    includes: [
+      "Full blood count",
+      "Fasting blood sugar",
+      "Lipid profile",
+      "PSA for men",
+      "Liver and kidney function",
+      "Urinalysis",
+    ],
   },
   {
     name: "Pediatric Health Screening",
     summary: "Screening for children, including school health and general wellness checks.",
-    includes: ["Full blood count", "Urinalysis", "Stool examination", "Malaria parasite", "Blood group and genotype"],
+    includes: [
+      "Full blood count",
+      "Urinalysis",
+      "Stool examination",
+      "Malaria parasite",
+      "Blood group and genotype",
+    ],
   },
 ];
 
@@ -92,17 +149,29 @@ export const signaturePackages: HealthPackage[] = [
   {
     name: "Silver Signature",
     summary: "The Executive / Corporate Wellness Package with an appropriate ultrasound scan.",
-    includes: ["Complete executive wellness investigations", "One appropriate ultrasound scan", "PSA for men aged 40 and above"],
+    includes: [
+      "Complete executive wellness investigations",
+      "One appropriate ultrasound scan",
+      "PSA for men aged 40 and above",
+    ],
   },
   {
     name: "Gold Signature",
     summary: "Executive wellness investigations with added blood group and genotype screening.",
-    includes: ["Complete executive wellness investigations", "Blood group and genotype", "Up to two appropriate ultrasound scans"],
+    includes: [
+      "Complete executive wellness investigations",
+      "Blood group and genotype",
+      "Up to two appropriate ultrasound scans",
+    ],
   },
   {
     name: "Platinum Signature",
     summary: "Executive wellness investigations with a specialised investigation of your choice.",
-    includes: ["Complete executive wellness investigations", "Choose a hormonal profile or semen analysis", "Up to two appropriate ultrasound scans"],
+    includes: [
+      "Complete executive wellness investigations",
+      "Choose a hormonal profile or semen analysis",
+      "Up to two appropriate ultrasound scans",
+    ],
   },
 ];
 
@@ -144,7 +213,11 @@ export const investigations: Investigation[] = [
   { name: "Fasting Blood Sugar (FBS)", category: "Heart & diabetes", kind: "Laboratory test" },
   { name: "Random Blood Sugar (RBS)", category: "Heart & diabetes", kind: "Laboratory test" },
   { name: "HbA1c", category: "Heart & diabetes", kind: "Laboratory test" },
-  { name: "Oral Glucose Tolerance Test (OGTT)", category: "Heart & diabetes", kind: "Laboratory test" },
+  {
+    name: "Oral Glucose Tolerance Test (OGTT)",
+    category: "Heart & diabetes",
+    kind: "Laboratory test",
+  },
   { name: "2HPP", category: "Heart & diabetes", kind: "Laboratory test" },
   { name: "Hormonal Profile (Female)", category: "Hormones & fertility", kind: "Laboratory test" },
   { name: "Hormonal Profile (Male)", category: "Hormones & fertility", kind: "Laboratory test" },
@@ -155,12 +228,24 @@ export const investigations: Investigation[] = [
   { name: "Progesterone", category: "Hormones & fertility", kind: "Laboratory test" },
   { name: "Testosterone", category: "Hormones & fertility", kind: "Laboratory test" },
   { name: "PSA", category: "Hormones & fertility", kind: "Laboratory test" },
-  { name: "Seminal Fluid Analysis (SFA)", category: "Hormones & fertility", kind: "Laboratory test" },
-  { name: "Seminal Fluid Analysis (SFA + MCS)", category: "Hormones & fertility", kind: "Laboratory test" },
+  {
+    name: "Seminal Fluid Analysis (SFA)",
+    category: "Hormones & fertility",
+    kind: "Laboratory test",
+  },
+  {
+    name: "Seminal Fluid Analysis (SFA + MCS)",
+    category: "Hormones & fertility",
+    kind: "Laboratory test",
+  },
   { name: "T3", category: "Hormones & fertility", kind: "Laboratory test" },
   { name: "T4", category: "Hormones & fertility", kind: "Laboratory test" },
   { name: "TSH", category: "Hormones & fertility", kind: "Laboratory test" },
-  { name: "Thyroid Function Test (TFT)", category: "Hormones & fertility", kind: "Laboratory test" },
+  {
+    name: "Thyroid Function Test (TFT)",
+    category: "Hormones & fertility",
+    kind: "Laboratory test",
+  },
   { name: "Urinalysis", category: "Urine, stool & cultures", kind: "Laboratory test" },
   { name: "Urine Microscopy", category: "Urine, stool & cultures", kind: "Laboratory test" },
   { name: "Urine M/C/S", category: "Urine, stool & cultures", kind: "Laboratory test" },
@@ -192,8 +277,16 @@ export const investigations: Investigation[] = [
 ];
 
 export const serviceCatalog: Investigation[] = [
-  ...healthPackages.map(({ name }) => ({ name, category: "Health packages", kind: "Laboratory test" as const })),
-  ...signaturePackages.map(({ name }) => ({ name, category: "Health packages", kind: "Laboratory test" as const })),
+  ...healthPackages.map(({ name }) => ({
+    name,
+    category: "Health packages",
+    kind: "Laboratory test" as const,
+  })),
+  ...signaturePackages.map(({ name }) => ({
+    name,
+    category: "Health packages",
+    kind: "Laboratory test" as const,
+  })),
   ...investigations,
 ];
 

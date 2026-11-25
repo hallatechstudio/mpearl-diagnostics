@@ -1,20 +1,25 @@
 import { ArrowRight, MapPin, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 
+import { BrandLogo } from "@/components/BrandLogo";
+import { SocialLinks } from "@/components/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { homeHref, pageFiles, type PageId } from "@/lib/mpearl-pages";
+import { clinic, quickLinks } from "@/lib/mpearl-site";
+import { AboutPage } from "@/pages/AboutPage";
 import { AppointmentsPage } from "@/pages/AppointmentsPage";
+import { FaqsPage } from "@/pages/FaqsPage";
 import { HomePage } from "@/pages/HomePage";
 import { PackagesPage } from "@/pages/PackagesPage";
 import { ServicesPage } from "@/pages/ServicesPage";
 import { VisitPage } from "@/pages/VisitPage";
 
-const mpearlLogo = `${import.meta.env.BASE_URL}favicon.png`;
-
 const pages = {
   home: HomePage,
   services: ServicesPage,
   packages: PackagesPage,
+  about: AboutPage,
+  faqs: FaqsPage,
   appointments: AppointmentsPage,
   visit: VisitPage,
 } satisfies Record<PageId, () => React.JSX.Element>;
@@ -22,6 +27,8 @@ const pages = {
 const navigation = [
   { id: "services", label: "Services" },
   { id: "packages", label: "Health packages" },
+  { id: "about", label: "About" },
+  { id: "faqs", label: "FAQs" },
   { id: "visit", label: "Visit us" },
 ] as const;
 
@@ -42,32 +49,23 @@ export function MpearlSite({ page }: { page: PageId }) {
           <MapPin aria-hidden="true" className="size-4 shrink-0 text-leaf" />
           <span>78 Bode Thomas Street, Surulere, Lagos</span>
           <span className="hidden sm:inline">
-            · Opposite Chicken Republic, same building as Konga
+            · Opposite Chicken Republic, same building as Konga, first floor
           </span>
         </div>
       </div>
 
       <header className="relative z-20 border-b border-border bg-background">
-        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:flex lg:justify-between lg:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:px-8 xl:flex xl:justify-between">
           <a
             href={homeHref}
             aria-label="Mpearl home"
             aria-current={page === "home" ? "page" : undefined}
             className="flex min-w-0 items-center gap-3"
           >
-            <img className="h-12 w-12 shrink-0 rounded-full object-cover" src={mpearlLogo} alt="" />
-            <span className="min-w-0">
-              <span className="block truncate font-display text-xl font-black leading-none text-primary sm:text-2xl">
-                MPEARL
-              </span>
-              <span className="mt-1 block text-[9px] font-bold uppercase leading-tight text-muted-foreground sm:text-[10px]">
-                Clinical Laboratory
-                <br className="sm:hidden" /> &amp; Diagnostics
-              </span>
-            </span>
+            <BrandLogo className="h-14 w-auto sm:h-16" />
           </a>
 
-          <nav aria-label="Main navigation" className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-6 xl:flex xl:gap-8">
             {navigation.map(({ id, label }) => (
               <a
                 key={id}
@@ -81,6 +79,7 @@ export function MpearlSite({ page }: { page: PageId }) {
           </nav>
 
           <div className="flex items-center gap-2">
+            <SocialLinks showHandle={false} className="hidden xl:flex" />
             <Button asChild size="sm" className="hidden px-5 sm:inline-flex">
               <a
                 href={pageFiles.appointments}
@@ -97,7 +96,7 @@ export function MpearlSite({ page }: { page: PageId }) {
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
               onClick={() => setMobileMenuOpen((current) => !current)}
-              className="lg:hidden"
+              className="xl:hidden"
             >
               {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
             </Button>
@@ -109,7 +108,7 @@ export function MpearlSite({ page }: { page: PageId }) {
           hidden={!mobileMenuOpen}
           className={
             mobileMenuOpen
-              ? "grid gap-1 border-t border-border bg-background px-4 py-3 shadow-md lg:hidden"
+              ? "grid gap-1 border-t border-border bg-background px-4 py-3 shadow-md xl:hidden"
               : "hidden"
           }
         >
@@ -131,6 +130,7 @@ export function MpearlSite({ page }: { page: PageId }) {
               Request an appointment <ArrowRight aria-hidden="true" />
             </a>
           </Button>
+          <SocialLinks className="mt-2" />
         </nav>
       </header>
 
@@ -138,41 +138,70 @@ export function MpearlSite({ page }: { page: PageId }) {
         <Page />
       </main>
 
-      <footer className="bg-background px-5 pb-20 pt-9 sm:px-8 sm:pb-9 lg:px-12">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <a href={homeHref} className="flex items-center gap-3" aria-label="Mpearl home">
-            <img src={mpearlLogo} alt="" className="size-10 rounded-full object-cover" />
-            <span>
-              <span className="block font-display font-black leading-none text-primary">
-                MPEARL
-              </span>
-              <span className="mt-1 block text-[10px] text-muted-foreground">
-                Clinical Laboratory &amp; Diagnostics
-              </span>
-            </span>
-          </a>
-          <div className="grid gap-2 text-sm sm:text-right">
-            <a
-              href="tel:+2349046403013"
-              className="inline-flex items-center gap-2 font-medium hover:text-primary sm:justify-end"
-            >
-              <Phone aria-hidden="true" className="size-4" /> 0904 640 3013
+      <footer className="border-t border-border bg-background px-5 pb-24 pt-10 sm:px-8 sm:pb-10 lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a href={homeHref} aria-label="Mpearl home">
+              <BrandLogo className="h-24 w-auto" />
             </a>
+            <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
+              Clinical laboratory and diagnostic services in Surulere, Lagos.
+            </p>
+          </div>
+          <nav aria-label="Footer">
+            <p className="text-sm font-bold text-foreground">Quick links</p>
+            <ul className="mt-3 grid gap-2 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-muted-foreground hover:text-primary">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div>
+            <p className="text-sm font-bold text-foreground">Visit</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {clinic.street}
+              <br />
+              {clinic.area}
+              <br />
+              {clinic.landmarks.join(". ")}.
+            </p>
             <a
-              href="tel:+2347060991444"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary sm:justify-end"
+              href={clinic.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
             >
-              <Phone aria-hidden="true" className="size-4" /> 0706 099 1444
-            </a>
-            <a
-              href="mailto:mpearldiagnostics@gmail.com"
-              className="text-muted-foreground hover:text-primary"
-            >
-              mpearldiagnostics@gmail.com
+              Get directions
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
+          <div>
+            <p className="text-sm font-bold text-foreground">Contact</p>
+            <div className="mt-3 grid gap-2 text-sm">
+              {clinic.phones.map((phone) => (
+                <a
+                  key={phone.href}
+                  href={phone.href}
+                  className="inline-flex items-center gap-2 font-medium hover:text-primary"
+                >
+                  <Phone aria-hidden="true" className="size-4" /> {phone.display}
+                </a>
+              ))}
+              <a
+                href={`mailto:${clinic.email}`}
+                className="text-muted-foreground hover:text-primary"
+              >
+                {clinic.email}
+              </a>
+            </div>
+            <SocialLinks className="mt-4" />
+          </div>
         </div>
-        <div className="mx-auto mt-7 max-w-7xl border-t border-border pt-5 text-xs text-muted-foreground">
+        <div className="mx-auto mt-8 max-w-7xl border-t border-border pt-5 text-xs text-muted-foreground">
           © {new Date().getFullYear()} Mpearl Clinical Laboratory &amp; Diagnostics Services. All
           rights reserved.
         </div>

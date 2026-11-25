@@ -19,6 +19,6 @@ npm run build
 npm run preview
 ```
 
-The production files are in `dist/`. The build includes separate HTML pages for Home, Services, Health Packages, Appointments, and Visit. Publish the full directory on a static host to keep the page links working.
+The production files are in `dist/`. The build includes separate HTML pages for Home, Services, Health Packages, About, FAQs, Appointments, and Visit. Publish the full directory on a static host to keep the page links working.
 
 When you are ready to publish on [GitHub Pages](https://github.com/seunosinowo/mpearl_3/settings/pages), select **GitHub Actions** as the Pages source and run **Deploy to GitHub Pages** from the Actions tab. The workflow runs only when started manually.
